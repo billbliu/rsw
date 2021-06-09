@@ -40,7 +40,7 @@ pub fn parse_md_file(build: &str, path: &Path) -> MdFile {
         panic!("couldn't read {}: {}", display, err);
     }
 
-    let re_md = Regex::new(r"^---([\s\S]*)---([\s\S]*)").unwrap();
+    let re_md = Regex::new(r"^---([\s\S]*?)---([\s\S]*)").unwrap();
     let caps = re_md.captures(content.as_str()).unwrap();
     let yaml_str = caps.get(1).unwrap().as_str();
 
