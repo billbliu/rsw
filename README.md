@@ -7,6 +7,20 @@ rust项目练习，参考https://gitee.com/dev-tang/rsw
 ### 安装
 Linux：下载rsw文件复制到/usr/local/bin命令下，然后就可使用RustWriter
 
+- 下载源代码
+```
+git clone https://github.com/billbliu/rsw.git
+cd rsw
+```
+- 编译代码
+```
+cargo build --release
+```
+- Linux安装
+```
+sudo cp target/release/rsw   /usr/local/bin/
+```
+
 ### 使用
 
 - rsw -h 查看帮助
