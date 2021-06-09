@@ -42,7 +42,7 @@ fn copy_public(target: &str, src: &str) {
                 // 将目标文件从右边按`/`拆分得到目录
                 let dirs: Vec<&str> = new_file.splitn(2, '/').collect();
                 // 如果要复制的目标目录不存在，则创建
-                create_not_exists(dirs[1]);
+                create_not_exists(dirs[0]);
                 // 复制文件
                 match fs::copy(file_name, &new_file) {
                     Err(why) => panic!("{} -> {}: {}", file_name, new_file, why.to_string()),

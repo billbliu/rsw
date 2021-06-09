@@ -69,7 +69,7 @@ pub fn init_work_space(project_name: &str, public_dir: &str, src_dir: &str) {
     let re_project = Regex::new(r"\{\{\s*project\s*\}\}").unwrap();
     let md_text  = String::from(re_project.replace_all(MD_STR, project_name));
     write_file(&index_md_name, &md_text);
-    let index_tpl_name = format!("{}/{}", &project_public, "__index.heml");
+    let index_tpl_name = format!("{}/{}", &project_public, "__index.html");
     
     write_file(&index_tpl_name, HTML_STR);
     println!("{} created successfully", project_name);
