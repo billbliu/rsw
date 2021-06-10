@@ -9,9 +9,10 @@ use rsw::template;
 use std::fs;
 use regex::Regex;
 use clap::App;
-
-
 use std::path::Path;
+
+use log::{info, warn};
+use log4rs;
 
 
 // 编译后的静态文件
@@ -73,11 +74,12 @@ fn loop_parse(build: &str, public: &str, src: &str) {
 }
 
 fn main() {
+    log4rs::init_file("log4rs.yaml", Default::default()).unwrap();
     let yaml = load_yaml!("cli.yml");
-    println!("projectname:{:?}",yaml);
+    info!("projectname:{:?}",yaml);
     let matches = App::from_yaml(yaml).get_matches();
 
-    println!("projectname:{:?}",matches);
+    warn!("projectname:{:?}",matches);
     if let Some(matches) = matches.subcommand_matches("new") {
         let project_name = matches.value_of("PROJECT").unwrap();
         println!("projectname:{}", project_name);
